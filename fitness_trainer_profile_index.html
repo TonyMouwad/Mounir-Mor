@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>بروفايل أخصائي تأهيل / Fitness Trainer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0f1724; /* very dark blue */
+      --card:#0b1320;
+      --muted:#94a3b8;
+      --accent:#ff6b35; /* orange */
+      --glass: rgba(255,255,255,0.04);
+      --glass-2: rgba(255,255,255,0.02);
+      --success:#10b981;
+      --radius:14px;
+      --max-width:1100px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: linear-gradient(180deg,var(--bg) 0%, #071024 100%);
+      color:#e6eef8;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      direction: rtl;
+      padding:40px 20px;
+      display:flex;
+      justify-content:center;
+    }
+    .container{
+      width:100%;
+      max-width:var(--max-width);
+      display:grid;
+      grid-template-columns: 360px 1fr;
+      gap:28px;
+    }
+    /* SIDEBAR CARD */
+    .card{
+      background:linear-gradient(180deg,var(--card), rgba(11,19,32,0.85));
+      border-radius:var(--radius);
+      padding:22px;
+      box-shadow: 0 8px 30px rgba(2,6,23,0.6);
+      overflow:hidden;
+    }
+    .profile-photo{
+      width:100%;
+      height:320px;
+      border-radius:12px;
+      background-image: url('profile-placeholder.jpg');
+      background-size:cover;
+      background-position:center;
+      position:relative;
+      box-shadow: inset 0 -40px 80px rgba(0,0,0,0.4);
+    }
+    .name-row{display:flex;align-items:center;justify-content:space-between;margin-top:14px}
+    .name-col{display:flex;flex-direction:column}
+    h1{font-size:20px;margin:0}
+    .subtitle{color:var(--muted);font-size:13px;margin-top:6px}
+    .badges{margin-top:14px;display:flex;flex-wrap:wrap;gap:8px}
+    .badge{background:var(--glass);padding:8px 10px;border-radius:999px;font-size:13px;color:var(--muted)}
+    .stat-row{display:flex;gap:12px;margin-top:18px}
+    .stat{flex:1;background:var(--glass-2);padding:12px;border-radius:10px;text-align:center}
+    .stat b{display:block;font-size:18px}
+    .contact-btn{display:block;margin-top:18px;padding:12px;border-radius:10px;background:linear-gradient(90deg,var(--accent),#ff915d);text-align:center;color:#051021;font-weight:700;cursor:pointer;border:none;width:100%}
+
+    /* MAIN */
+    .main{
+      display:flex;flex-direction:column;gap:18px;
+    }
+    .section{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);padding:18px;border-radius:12px}
+    .section h2{margin:0 0 8px 0;font-size:16px}
+    .bio{color:var(--muted);line-height:1.6}
+
+    .services{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    .service{background:var(--glass);padding:12px;border-radius:10px}
+    .service h3{margin:0 0 6px 0;font-size:14px}
+    .service p{margin:0;color:var(--muted);font-size:13px}
+
+    .skills{display:flex;flex-wrap:wrap;gap:10px}
+    .skill{background:transparent;border-radius:999px;padding:6px 10px;border:1px solid rgba(255,255,255,0.06);font-size:13px;color:var(--muted)}
+
+    .testimonials{display:flex;flex-direction:column;gap:10px}
+    .test{background:var(--glass-2);padding:12px;border-radius:10px}
+    .test p{margin:0;color:var(--muted)}
+
+    .schedule{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+    .slot{display:flex;justify-content:space-between;padding:8px;border-radius:8px;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent)}
+    .slot button{border:0;background:transparent;color:var(--accent);font-weight:600;cursor:pointer}
+
+    /* CONTACT */
+    form .row{display:flex;gap:8px}
+    input,textarea,select{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:inherit}
+    textarea{min-height:110px}
+    .submit{margin-top:10px;padding:12px;border-radius:10px;background:var(--accent);border:0;color:#04101a;font-weight:700;cursor:pointer}
+
+    /* small screens */
+    @media (max-width:960px){
+      .container{grid-template-columns:1fr;}
+      .profile-photo{height:260px}
+      .services{grid-template-columns:repeat(2,1fr)}
+      .schedule{grid-template-columns:1fr}
+    }
+    @media (max-width:480px){
+      body{padding:20px 12px}
+      .services{grid-template-columns:1fr}
+    }
+
+    /* little helper */
+    .muted{color:var(--muted)}
+    .pill{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,0.02);font-weight:600}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- LEFT -->
+    <aside class="card">
+      <div class="profile-photo" id="photo" aria-hidden="true"></div>
+      <div class="name-row">
+        <div class="name-col">
+          <h1>ك. منير</h1>
+          <div class="subtitle">أخصائي تأهيل بدني • مدرب لياقة معتمد</div>
+        </div>
+        <div style="text-align:left">
+          <div class="pill">خبرة 8 سنوات</div>
+        </div>
+      </div>
+
+      <div class="badges">
+        <div class="badge">NSCA Certified</div>
+        <div class="badge">CPR/First Aid</div>
+        <div class="badge">Rehab Specialist</div>
+      </div>
+
+      <div class="stat-row">
+        <div class="stat"><b>120+</b><span class="muted"> جلسة ناجحة</span></div>
+        <div class="stat"><b>95%</b><span class="muted"> رضا العملاء</span></div>
+      </div>
+
+      <button class="contact-btn" id="contactCTA">احجز استشارة</button>
+
+      <div style="margin-top:16px;font-size:13px;color:var(--muted)">
+        <div><strong>اللغة:</strong> العربية، إنجليزية</div>
+        <div style="margin-top:8px"><strong>الموقع:</strong> القاهرة، مصر</div>
+      </div>
+    </aside>
+
+    <!-- RIGHT MAIN -->
+    <main class="main">
+
+      <section class="section">
+        <h2>نبذة عني</h2>
+        <p class="bio">أنا أخصائي تأهيل لياقي معتمد أعمل على تصميم برامج تدريب آمنة وفعّالة للمرضى وذوي الاحتياجات الخاصة والأشخاص الراغبين في استعادة القوة والوظيفة. أسلوبي يعتمد على تقييم فردي، تدريب مخصص، ومتابعة قائمة على أدلة علمية.
+        </p>
+      </section>
+
+      <section class="section">
+        <h2>الخدمات</h2>
+        <div class="services">
+          <div class="service">
+            <h3>تأهيل ما بعد الإصابات</h3>
+            <p>برامج لرفع القوة والحركة بعد الإصابات والعمليات.</p>
+          </div>
+          <div class="service">
+            <h3>تمارين القوة واللياقة</h3>
+            <p>خطط تدريجية لبناء القوة والتحمل.</p>
+          </div>
+          <div class="service">
+            <h3>تدريب خاص لذوي الاحتياجات</h3>
+            <p>جلسات مهيكلة للأطفال وكبار السن وذوي الإعاقة الحركية.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>المهارات</h2>
+        <div class="skills">
+          <span class="skill">تقييم وظيفي</span>
+          <span class="skill">تخطيط برامج</span>
+          <span class="skill">تقوية جوهرية</span>
+          <span class="skill">علاج طبيعي مصغر</span>
+          <span class="skill">تمارين توازنية</span>
+          <span class="skill">تحفيز عصبي حركي</span>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>الشهادات والتدريب</h2>
+        <ul class="muted" style="margin:8px 0 0 0;padding-left:18px">
+          <li>شهادة NSCA في تدريب القوة</li>
+          <li>دورة تأهيل بعد الإصابات - معهد المحترفين</li>
+          <li>شهادة CPR وFirst Aid</li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <h2>أوقات العمل المتاحة</h2>
+        <div class="schedule">
+          <div class="slot"><div>الإثنين</div><div>10:00 - 18:00 <button data-day="mon">احجز</button></div></div>
+          <div class="slot"><div>الثلاثاء</div><div>10:00 - 18:00 <button data-day="tue">احجز</button></div></div>
+          <div class="slot"><div>الأربعاء</div><div>مغلق</div></div>
+          <div class="slot"><div>الخميس</div><div>14:00 - 20:00 <button data-day="thu">احجز</button></div></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>آراء العملاء</h2>
+        <div class="testimonials">
+          <div class="test"><strong>مريم</strong><p>ساعدني الدكتور محمد على استعادة قدرتي على المشي بعد العملية. برنامج دقيق وصبور.</p></div>
+          <div class="test"><strong>أحمد</strong><p>خسيت 10 كيلو في 3 شهور وبقيت أحسن في أداء الجيم.</p></div>
+        </div>
+      </section>
+
+      <section class="section" id="contact">
+        <h2>تواصل</h2>
+        <form id="contactForm">
+          <div class="row">
+            <input type="text" id="name" placeholder="اسمك" required>
+            <input type="tel" id="phone" placeholder="رقم الهاتف" required>
+          </div>
+          <div style="margin-top:8px">
+            <input type="email" id="email" placeholder="البريد الإلكتروني (اختياري)">
+          </div>
+          <div style="margin-top:8px">
+            <select id="service">
+              <option value="consult">استشارة مجانية</option>
+              <option value="rehab">تأهيل</option>
+              <option value="fitness">برنامج لياقة</option>
+            </select>
+          </div>
+          <div style="margin-top:8px">
+            <textarea id="message" placeholder="اكتب رسالتك أو وصف حالتك"></textarea>
+          </div>
+          <button class="submit" type="submit">أرسل</button>
+          <div id="formMsg" style="margin-top:10px;font-size:13px"></div>
+        </form>
+      </section>
+
+    </main>
+  </div>
+
+  <script>
+    // Small interactivity: smooth scroll to contact, basic form handling, replace placeholder photo if desired
+    document.getElementById('contactCTA').addEventListener('click', function(){
+      document.getElementById('contact').scrollIntoView({behavior:'smooth'});
+    });
+
+    // Book buttons open contact and prefill service
+    document.querySelectorAll('[data-day]').forEach(btn => {
+      btn.addEventListener('click', function(){
+        document.getElementById('service').value = 'consult';
+        document.getElementById('message').value = 'أود حجز جلسة يوم: ' + btn.getAttribute('data-day');
+        document.getElementById('contact').scrollIntoView({behavior:'smooth'});
+      });
+    });
+
+    // Form submit (demo): validate and show message (in real site, send by fetch to backend)
+    document.getElementById('contactForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      if(!name || !phone){
+        showMsg('ادخل الاسم ورقم الهاتف', true);
+        return;
+      }
+      // simulate success
+      showMsg('تم إرسال رسالتك! سنعاود الاتصال بك قريبًا.', false);
+      this.reset();
+    });
+
+    function showMsg(text, isError){
+      const el = document.getElementById('formMsg');
+      el.textContent = text;
+      el.style.color = isError ? '#ff6b6b' : 'var(--success)';
+    }
+
+    // Optionally: if user provides an image named 'profile.jpg' in same folder, use it
+    (function tryReplacePhoto(){
+      const photo = document.getElementById('photo');
+      const testImg = new Image();
+      testImg.onload = function(){ photo.style.backgroundImage = "url('profile.jpg')" }
+      testImg.onerror = function(){};
+      testImg.src = 'profile.jpg';
+    })();
+  </script>
+</body>
+</html>
